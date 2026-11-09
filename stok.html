@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><title>Stok &amp; Katalog | Toko Buku Pustaka</title></head>
+<body data-page="stok">
+<div class="app">
+<aside class="side">
+  <a class="logo" href="dashboard.html"><span class="logo-mark">TBP</span><span>Pustaka</span></a>
+  <nav aria-label="Menu utama"><a href="dashboard.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Overview</a><a href="stok.html" aria-current="page"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h7"/></svg>Katalog Buku</a><a href="checkout.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l1 12H5z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Pesanan</a><a href="tracking.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>Pengiriman</a><a href="dashboard.html#laporan" data-modal="laporan"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Laporan</a><a href="dashboard.html#histori" data-modal="histori"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Histroy Transaksi</a></nav>
+  <button class="side-out" id="btnLogout"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>Keluar</button>
+</aside>
+<div class="content">
+<header class="head">
+  <div class="grow"></div>
+  <div class="prof"><span class="avatar" id="avatar"></span><div><strong id="profNama"></strong><small>Admin</small></div></div>
+</header>
+<main>
+  <h1>Informasi Stok/Katalog</h1>
+  <p class="muted">Data berasal dari variabel <code>dataKatalogBuku</code> di <code>js/data.js</code>.</p>
+  <div class="card">
+    <label for="cari">Cari judul, penulis, atau kategori</label>
+    <input id="cari" type="search" placeholder="Contoh: novel">
+  </div>
+  <div class="card tablewrap">
+    <table>
+      <thead><tr><th>Buku</th><th>Kategori</th><th>Harga</th><th>Stok</th><th>Aksi</th></tr></thead>
+      <tbody id="bodyStok"></tbody>
+    </table>
+  </div>
+  <form class="card" id="formTambah" novalidate>
+    <h2>Tambah stok buku</h2>
+    <div class="form-grid">
+      <div><label for="judul">Judul</label><input id="judul" name="judul"></div>
+      <div><label for="penulis">Penulis</label><input id="penulis" name="penulis"></div>
+      <div><label for="kategori">Kategori</label><input id="kategori" name="kategori"></div>
+      <div><label for="harga">Harga (Rp)</label><input id="harga" name="harga" type="number" min="1"></div>
+      <div><label for="stok">Jumlah stok</label><input id="stok" name="stok" type="number" min="0"></div>
+      <div><label for="gambar">Nama file foto (opsional)</label><input id="gambar" name="gambar" placeholder="contoh: buku10.jpg"></div>
+    </div>
+    <p class="msg" id="msgTambah" role="alert"></p>
+    <button class="btn" type="submit">Tambah ke katalog</button>
+  </form>
+</main>
+</div></div>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><title>Masuk | Toko Buku Pustaka</title></head>
+<body data-page="login">
+<div class="auth-page">
+<div class="auth-card">
+  <section class="auth-form">
+    <h1>Selamat datang</h1>
+    <p class="sub">Masuk untuk mulai belanja buku dengan nyaman.</p>
+    <div class="social">
+      <button type="button" data-social="Google"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.5-.2-2.2H12v4.2h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.4z"/><path fill="#34A853" d="M12 23c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.3 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3A11.5 11.5 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.6 13.7a6.9 6.9 0 0 1 0-4.4v-3H1.8a11.5 11.5 0 0 0 0 10.4l3.8-3z"/><path fill="#EA4335" d="M12 5.4c1.7 0 3.2.6 4.4 1.7l3.3-3.3A11.4 11.4 0 0 0 12 1 11.5 11.5 0 0 0 1.8 6.3l3.8 3C6.5 7.4 9 5.4 12 5.4z"/></svg>Google</button>
+      <button type="button" data-social="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#1877F2"/><path fill="#fff" d="M16.5 24v-9h3l.5-3.6h-3.5V9.2c0-1 .3-1.7 1.8-1.7H20V4.3c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.7h-3V15h3v9z"/></svg>Facebook</button>
+    </div>
+    <div class="or">ATAU</div>
+    <form id="formLogin" novalidate style="display:flex;flex-direction:column">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="mahasiswa@kampus.ac.id" autocomplete="email" required>
+      <label for="password">Password</label>
+      <div class="pw">
+        <input type="password" id="password" placeholder="Minimal 6 karakter" autocomplete="current-password" required>
+        <button type="button" id="togglePw" aria-label="Tampilkan atau sembunyikan password">Tampilkan</button>
+      </div>
+      <button type="button" class="linkbtn forgot" id="btnLupa">Lupa password?</button>
+      <p class="msg" id="msgLogin" role="alert"></p>
+      <button class="btn login-btn" type="submit">Masuk</button>
+    </form>
+    <p class="daftar">Belum punya akun? <button type="button" class="linkbtn" id="btnDaftar">Daftar</button></p>
+    <p class="muted" style="font-size:.8rem;margin-top:1rem">Akun demo: mahasiswa@kampus.ac.id / 123456</p>
+  </section>
+  <section class="auth-art">
+    <div class="mock" aria-hidden="true">
+      <div class="mock-win">
+        <div class="mock-bar"><i></i><i></i><i></i></div>
+        <div class="mock-body">
+          <div class="mock-cover">Bumi Manusia</div>
+          <div class="stars">★★★★★</div>
+          <p style="margin:.4rem 0 0;color:#555">Bukunya sampai dengan rapi dan cepat. Pelayanannya ramah, saya suka!</p>
+          <div class="mock-btn">Luar biasa</div>
+        </div>
+      </div>
+      <div class="mock-tag"><span class="logo">TBP</span><br><strong>Baca lebih banyak</strong><br><span class="muted">Koleksi novel, sejarah, dan teknologi</span></div>
+    </div>
+    <div>
+      <h2>Mulai belanja hari ini</h2>
+      <p>Pesan buku favorit dan pantau pengirimannya di Toko Buku Pustaka setelah Anda masuk.</p>
+    </div>
+  </section>
+</div>
+</div>
+
+<div class="modal" id="modalLupa" role="dialog" aria-modal="true" aria-labelledby="tLupa"><div class="modal-box">
+  <h2 id="tLupa">Lupa password</h2>
+  <form id="formLupa" novalidate>
+    <label for="emailLupa">Email terdaftar</label><input type="email" id="emailLupa">
+    <p class="msg" id="msgLupa"></p>
+    <div class="modal-actions"><button type="button" class="btn alt" data-close>Tutup</button><button class="btn" type="submit">Kirim tautan reset</button></div>
+  </form>
+</div></div>
+
+<div class="modal" id="modalDaftar" role="dialog" aria-modal="true" aria-labelledby="tDaftar"><div class="modal-box">
+  <h2 id="tDaftar">Daftar akun</h2>
+  <form id="formDaftar" novalidate>
+    <label for="namaDaftar">Nama lengkap</label><input id="namaDaftar">
+    <label for="emailDaftar">Email</label><input type="email" id="emailDaftar">
+    <label for="passDaftar">Password (min. 6 karakter)</label><input type="password" id="passDaftar">
+    <p class="msg" id="msgDaftar"></p>
+    <div class="modal-actions"><button type="button" class="btn alt" data-close>Tutup</button><button class="btn" type="submit">Buat akun</button></div>
+  </form>
+</div></div>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body></html>

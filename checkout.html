@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><title>Pemesanan | Toko Buku Pustaka</title></head>
+<body data-page="checkout">
+<div class="app">
+<aside class="side">
+  <a class="logo" href="dashboard.html"><span class="logo-mark">TBP</span><span>Pustaka</span></a>
+  <nav aria-label="Menu utama"><a href="dashboard.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Overview</a><a href="stok.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h7"/></svg>Katalog Buku</a><a href="checkout.html" aria-current="page"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l1 12H5z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Pesanan</a><a href="tracking.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>Pengiriman</a><a href="dashboard.html#laporan" data-modal="laporan"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Laporan</a><a href="dashboard.html#histori" data-modal="histori"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Histroy Transaksi</a></nav>
+  <button class="side-out" id="btnLogout"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>Keluar</button>
+</aside>
+<div class="content">
+<header class="head">
+  <div class="grow"></div>
+  <div class="prof"><span class="avatar" id="avatar"></span><div><strong id="profNama"></strong><small>Admin</small></div></div>
+</header>
+<main>
+  <h1>Halaman Pemesanan</h1>
+  <div class="two-col">
+    <section class="card">
+      <h2>Buku yang dipesan</h2>
+      <div id="daftarPesanan"></div>
+    </section>
+    <form class="card" id="formPesan" novalidate>
+      <h2>Data penerima &amp; pembayaran</h2>
+      <label for="nama">Nama penerima</label><input id="nama" name="nama" autocomplete="name">
+      <label for="telp">Nomor telepon</label><input id="telp" name="telp" type="tel" autocomplete="tel">
+      <label for="alamat">Alamat lengkap</label><textarea id="alamat" name="alamat" rows="3"></textarea>
+      <label for="ekspedisi">Ekspedisi</label>
+      <select id="ekspedisi" name="ekspedisi"><option>JNE</option><option>J&amp;T</option><option>SiCepat</option><option>Ambil di toko</option></select>
+      <label for="pembayaran">Metode pembayaran</label>
+      <select id="pembayaran" name="pembayaran"><option>Transfer bank</option><option>E-wallet</option><option>Bayar di tempat (COD)</option></select>
+      <div style="margin-top:1rem">
+        <div class="sum"><span>Subtotal</span><span id="subtotal">Rp 0</span></div>
+        <div class="sum"><span>Ongkos kirim</span><span id="ongkir">Rp 0</span></div>
+        <div class="sum total"><span>Total bayar</span><span id="total">Rp 0</span></div>
+      </div>
+      <p class="msg" id="msgPesan" role="alert"></p>
+      <button class="btn amber" type="submit" style="width:100%">Buat pesanan</button>
+    </form>
+  </div>
+</main>
+</div></div>
+
+<div class="modal" id="modalSukses" role="dialog" aria-modal="true" aria-labelledby="tSukses"><div class="modal-box">
+  <h2 id="tSukses">Pesanan dibuat</h2>
+  <p>Nomor Delivery Order Anda:</p>
+  <p style="font-size:1.8rem;font-weight:700;margin:.2rem 0" id="noDOBaru"></p>
+  <p class="muted">Simpan nomor ini untuk melacak pengiriman.</p>
+  <div class="modal-actions"><button class="btn alt" data-close>Tutup</button><a class="btn" id="linkTrack" href="tracking.html">Lacak pesanan</a></div>
+</div></div>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body></html>

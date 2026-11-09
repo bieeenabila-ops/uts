@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><title>Dashboard | Toko Buku Pustaka</title></head>
+<body data-page="dashboard">
+<div class="app">
+<aside class="side">
+  <a class="logo" href="dashboard.html"><span class="logo-mark">TBP</span><span>Pustaka</span></a>
+  <nav aria-label="Menu utama"><a href="dashboard.html" aria-current="page"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Overview</a><a href="stok.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h7"/></svg>Katalog Buku</a><a href="checkout.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l1 12H5z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Pesanan</a><a href="tracking.html"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>Pengiriman</a><a href="dashboard.html#laporan" data-modal="laporan"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Laporan</a><a href="dashboard.html#histori" data-modal="histori"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Histroy Transaksi</a></nav>
+  <button class="side-out" id="btnLogout"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>Keluar</button>
+</aside>
+<div class="content">
+<header class="head">
+  <div><h1 id="greeting">Selamat datang</h1><p class="muted" id="clock"></p></div>
+  <div class="grow"><input class="search" id="cariTop" type="search" placeholder="Cari judul atau penulis..." aria-label="Cari buku"></div>
+  <div class="prof"><span class="avatar" id="avatar"></span><div><strong id="profNama"></strong><small>Admin</small></div></div>
+</header>
+<main class="dash">
+  <aside class="filters" aria-label="Filter buku">
+    <div class="fblock">
+      <label for="fKategori">Kategori</label>
+      <select id="fKategori"><option value="">Semua kategori</option></select>
+    </div>
+    <div class="fblock">
+      <h3>Harga</h3>
+      <label class="opt"><input type="radio" name="rentang" value="0-99999999" checked> Semua harga</label>
+      <label class="opt"><input type="radio" name="rentang" value="0-80000"> Di bawah Rp 80.000</label>
+      <label class="opt"><input type="radio" name="rentang" value="80000-100000"> Rp 80.000 – 100.000</label>
+      <label class="opt"><input type="radio" name="rentang" value="100000-120000"> Rp 100.000 – 120.000</label>
+      <label class="opt"><input type="radio" name="rentang" value="120000-99999999"> Di atas Rp 120.000</label>
+    </div>
+    <div class="fblock">
+      <label for="fMaks">Harga maksimal</label>
+      <output class="bubble" id="outMaks">Rp 150.000</output>
+      <input type="range" id="fMaks" min="50000" max="150000" step="5000" value="150000">
+    </div>
+    <button class="btn pill" id="btnTerapkan" type="button" style="width:100%">Terapkan</button>
+    <button class="linkbtn" id="btnReset" type="button" style="display:block;margin:.8rem auto 0">Reset filter</button>
+  </aside>
+  <section class="panel">
+    <div class="grid-head">
+      <div><p class="crumb">Beranda &rsaquo; <strong>Semua Buku</strong></p><p class="muted" id="hitungBuku" role="status"></p></div>
+      <a class="btn pill" href="checkout.html">+ Buat Pesanan</a>
+    </div>
+    <div class="pgrid" id="gridBuku"></div>
+  </section>
+</main>
+</div></div>
+<div class="modal" id="modalLaporan" role="dialog" aria-modal="true" aria-labelledby="tLap"><div class="modal-box">
+  <h2 id="tLap">Laporan Pemesanan</h2>
+  <div class="sum"><span>Jumlah pesanan</span><strong id="lapPesanan"></strong></div>
+  <div class="sum"><span>Buku terjual</span><strong id="lapBuku"></strong></div>
+  <div class="sum total"><span>Total omzet</span><span id="lapOmzet"></span></div>
+  <div class="modal-actions"><button class="btn" data-close>Tutup</button></div>
+</div></div>
+
+<div class="modal" id="modalHistori" role="dialog" aria-modal="true" aria-labelledby="tHis"><div class="modal-box wide">
+  <h2 id="tHis">Histroy Transaksi</h2>
+  <div class="tablewrap"><table><thead><tr><th>No. DO</th><th>Tanggal</th><th>Pemesan</th><th>Total</th></tr></thead><tbody id="bodyHistori"></tbody></table></div>
+  <div class="modal-actions"><button class="btn" data-close>Tutup</button></div>
+</div></div>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body></html>
