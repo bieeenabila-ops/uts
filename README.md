@@ -63,3 +63,5 @@ Dashboard memakai layout sidebar + grid buku dengan filter kategori, rentang har
 2. Di `js/data.js`, isi `gambar` pada buku terkait, misalnya `gambar: "img/buku1.jpg"`.
 3. Untuk buku baru lewat form di `stok.html`, isi kolom "Nama file foto" (contoh: `buku10.jpg`). Fotonya tetap harus lebih dulu disalin ke folder `img/`.
 4. Jika file foto tidak ada, cover berwarna dengan judul buku tampil otomatis.
+
+   #LINK YOUTUBE : https://youtu.be/47wZonuP6SM
